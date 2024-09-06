@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply overflow-x-hidden h-full font-primary max-lg:text-sm xl:text-2xl;
+}
+
+* {
+  @apply box-border;
+}
+#root {
+  @apply w-full h-full box-border;
+}
+body {
+  @apply box-border w-full max-w-full h-full m-0 pb-12;
+}
+h1 {
+  @apply text-2xl m-0 p-0 font-[700];
+}
+h2 {
+  @apply text-left text-xl tracking-[0px] text-primary uppercase opacity-100 font-primary font-[700];
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+}
+h3 {
+  @apply tracking-[0px] font-[700] text-[1.17rem] text-secondary opacity-100 m-0 font-primary;
+}
+
+ul, ol {
+  list-style: inherit;
+  margin: inherit;
+  padding: inherit;
+  line-height: normal;
+
+}
+
+ul {
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+@media screen and (max-width: 431px) {
+   ul {
+    padding-inline-start: 20px;
+   }
+}
+
+button {
+  @apply text-[1em] font-medium cursor-pointer px-[1.2em] py-[0.6em] rounded-lg border;
+  border-color: transparent;
+  line-height: normal;
+  transition: border-color .5s;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.page-header h1 {
+  @apply max-md:hidden;
+}
+
+.main-content h1 {
+  @apply md:hidden;
+}
+
+.content-wrapper {
+  @apply h-auto flex flex-col items-center text-left text-base tracking-[0px] text-secondary opacity-100 mx-auto my-4 px-0 py-4 font-secondary;
+  line-height: normal;
+}
+
+.content-wrapper.two-col {
+  @apply justify-between flex-row;
+}
+.content-wrapper.two-col .lg-col {
+  @apply basis-3/5;
+}
+.content-wrapper.two-col .sm-col {
+  @apply basis-2/5;
+}
+.content-wrapper div {
+  @apply basis-full m-auto;
+}
+.content-wrapper.two-col div {
+  @apply basis-6/12;
+}
+.seperator::before {
+  @apply content-['|'] font-medium text-white px-3 py-0;
+}

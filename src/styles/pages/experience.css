@@ -1,0 +1,10 @@
+.exp-page .title {
+    @apply text-[1.2rem] text-secondary font-primary;
+  }
+.exp-page .collapse-content-wrapper {
+    @apply text-secondary font-secondary;
+}
+.exp-section {
+    @apply mb-8;
+}
+  
