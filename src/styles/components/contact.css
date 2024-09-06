@@ -1,0 +1,6 @@
+.contact-widget .contact-item {
+    @apply mb-4 font-primary;
+}
+.contact-widget a {
+    @apply text-black underline;
+}

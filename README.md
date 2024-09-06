@@ -1,2 +1,24 @@
 # next-portfolio
 This is a refactoring of github.com/j-whittaker/react-portfolio into the Next.js framework, to allow for more functionaltiy built upon original portfolio
+
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm install
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
