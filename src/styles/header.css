@@ -1,0 +1,19 @@
+.page-header h1 { 
+  @apply text-medgrey text-2xl tracking-[0] font-primary;
+}
+
+div.toolbar {
+    @apply max-md:basis-full;
+}
+.main-content h1 {
+    @apply  max-md:text-primary  max-md:text-[1.2rem]  max-md:tracking-[0]  max-md:flex  max-md:justify-between  max-md:mt-4  max-md:mb-8  max-md:font-primary;
+}
+
+.main-content h1 .seperator {
+    @apply  max-md:hidden;
+}
+
+.nav-btn:focus,
+.nav-btn:focus-visible {
+  outline: none;
+}

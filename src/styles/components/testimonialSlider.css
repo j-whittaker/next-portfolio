@@ -1,0 +1,24 @@
+
+.testimonial-slide {
+    background: 0% 0% no-repeat padding-box;
+    align-items: end;
+    @apply bg-offgrey;
+}
+  
+.slide-btn.active {
+    @apply bg-primary;
+}
+
+.testimonial-arrow.prev img {
+    @apply rotate-180;
+  }
+
+
+.testimonial-arrow:focus,
+.testimonial-arrow:focus-visible {
+    outline: none;
+}
+
+div.testimonial-slide {
+    @apply max-md:min-h-[25rem] max-sm:min-h-[30rem] max-sm:p-4;
+}
