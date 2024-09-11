@@ -1,3 +1,4 @@
+import { AccessTokenReponse } from '@/utils/api/extractToken';
 import axios from 'axios';
 
 const CLIENT_ID : string | undefined = process.env.SPOTIFY_CLIENT_ID;
@@ -10,16 +11,15 @@ export const BASE_SPOTIFY_URL : string | undefined = process.env.SPOTIFY_BASE_UR
 
 const BASE_SPOTIFY_API_URL : string | undefined = process.env.SPOTIFY_BASE_API_URL;
 
-
 /**
  * Access Token for Spotify
  * @returns string | null
  */
-export const generateToken = async () : Promise<any> => {
+export const generateToken = async () : Promise<AccessTokenReponse> => {
   
     const credsBuffer : Buffer = Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET);
 
-    const response = await axios.post(`${BASE_SPOTIFY_URL}/api/token`, new URLSearchParams({
+    const response = await axios.post<AccessTokenReponse>(`${BASE_SPOTIFY_URL}/api/token`, new URLSearchParams({
         grant_type: 'client_credentials',
     }), {
         headers: {
@@ -30,7 +30,7 @@ export const generateToken = async () : Promise<any> => {
 
     //TODO handle responses
 
-    return response;
+    return response.data;
 
 }
 
@@ -39,7 +39,7 @@ export const generateToken = async () : Promise<any> => {
  * 
  * @param access_token string
  */
-export const getCurrentPlaylist = async ( access_token: string ) => {
+export const getCurrentPlaylist = async ( access_token: string ) : Promise<unknown> => {
     const response = await axios.get(`${BASE_SPOTIFY_API_URL}playlists/${CURRENT_PLAYLIST}`, {
         headers: {
             'Authorization': `Bearer ${access_token}`,
@@ -49,6 +49,6 @@ export const getCurrentPlaylist = async ( access_token: string ) => {
 
     //TODO handle reponse codes
 
-    return response;
+    return response.data;
 }
 

@@ -16,7 +16,7 @@ body {
   @apply box-border w-full max-w-full h-full m-0 pb-12;
 }
 h1 {
-  @apply text-2xl m-0 p-0 font-[700];
+  @apply text-2xl m-0 p-0 font-[700] text-secondary;
 }
 h2 {
   @apply text-left text-xl tracking-[0px] text-primary uppercase opacity-100 font-primary font-[700];
@@ -77,7 +77,7 @@ button:focus-visible {
   @apply justify-between flex-row;
 }
 .content-wrapper.two-col .lg-col {
-  @apply basis-3/5 grow-0 shrink-0 max-w-[60%];
+  @apply basis-3/5 grow-0 shrink-0 max-w-[60%] max-sm:max-w-[90%] max-sm:flex max-sm:flex-col max-sm:items-center max-sm:text-center;
 }
 .content-wrapper.two-col .sm-col {
   @apply basis-2/5;

@@ -9,10 +9,11 @@ import openUrlNewWindow from "@/utils/tools/openUrlNewWindow";
 
 
 export const SpotifyLogo = () => {
-    return (<><span className="w-[12.5%] !mx-0 !basis-1/4 cursor-pointer" onClick={()=> openUrlNewWindow(BASE_SPOTIFY_URL)}><Image src={spotifyLogo} alt="spotify"/></span></>);
+    return (<><span className="w-[12.5%] !mx-0 !basis-1/4 cursor-pointer" onClick={()=> openUrlNewWindow(BASE_SPOTIFY_URL ?? '')}><Image src={spotifyLogo} alt="spotify"/></span></>);
 } 
 
-const SpotifyContainer : React.FC<{tracklist: TrackInterface[]}> =  ({tracklist}) =>  {
+const SpotifyContainer : React.FC<{tracklist: TrackInterface[] | undefined}> =  ({tracklist = []}) =>  {
+
     const trackList = [<Track name={"Name"} album={"Album"} url={""} artists={["Artist"]} key={"header"} disableHover={true} additionalClasses="!bg-primary rounded"/>].concat(tracklist.map(
         (track) => <Track name={track.name} album={track.album} url={track.url} artists={track.artists} key={track.name + track.album}/>
     ));
@@ -23,7 +24,7 @@ const SpotifyContainer : React.FC<{tracklist: TrackInterface[]}> =  ({tracklist}
             <span className="text-primary font-[700]">Currently Playing...</span>
             <SpotifyLogo/>
         </div>
-        <div className="flex max-w-full w-11/12 flex-col !mx-0 !mt-4 !mb-8 !pb-1 rounded-md border bg-medgrey border-secondary">{trackList}</div>
+        <div className={`${tracklist.length == 0 ? 'min-h-[150px]' : ''} flex max-w-full w-11/12 flex-col !mx-0 !mt-4 !mb-8 !pb-1 rounded-md border bg-medgrey border-secondary`}>{trackList}</div>
         </>
     );
 }

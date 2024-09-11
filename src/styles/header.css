@@ -6,7 +6,7 @@ div.toolbar {
     @apply max-md:basis-full;
 }
 .main-content h1 {
-    @apply  max-md:text-primary  max-md:text-[1.2rem]  max-md:tracking-[0]  max-md:flex  max-md:justify-between  max-md:mt-4  max-md:mb-8  max-md:font-primary;
+    @apply  max-md:text-secondary max-md:text-[1.2rem]  max-md:tracking-[0]  max-md:flex  max-md:justify-between  max-md:mt-4  max-md:mb-8  max-md:font-primary;
 }
 
 .main-content h1 .seperator {

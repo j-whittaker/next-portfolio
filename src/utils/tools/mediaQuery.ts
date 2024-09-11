@@ -1,6 +1,6 @@
 "use client"
 
-export default function mediaQuery(mediaCheck : string, updateState : React.Dispatch<React.SetStateAction<any>> ) : void {
+export default function mediaQuery(mediaCheck : string, updateState : React.Dispatch<React.SetStateAction<boolean>> ) : void {
     if(typeof window == "undefined") {
         return;
     }

@@ -34,7 +34,7 @@ export const validPages : DefaultPage[] = Object.values(PAGE_LIST);
  */
 function reverseMap(list: PageList) : PageList { 
     const newList : PageList = {}; 
-    for(var key in list){ 
+    for(const key in list){ 
       newList[list[key]] = key; 
     } 
     return newList; 

@@ -9,7 +9,7 @@ import React from 'react';
 
 interface NavLinkProperties {
     section: DefaultPage;
-    setActiveSection: Function;
+    setActiveSection: ((page:DefaultPage) => void);
     isActive: boolean;
 }
 
@@ -19,10 +19,11 @@ const NavLink : React.FC<NavLinkProperties> = ({section, setActiveSection, isAct
 
 const Toolbar : React.FC = () => {
     const router = useRouter();
+    const pathName = usePathname();
 
     const getActiveSection = useCallback(() => {
-        return PATH_TO_PAGE_MAP[usePathname()] ?? PAGE_LIST.HOME_PAGE;
-    },[router]);
+        return PATH_TO_PAGE_MAP[pathName] ?? PAGE_LIST.HOME_PAGE;
+    },[pathName]);
 
     const setActiveSection = useCallback((page : DefaultPage) => {
         router.push(PAGE_TO_PATH_MAP[page]);
