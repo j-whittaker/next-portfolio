@@ -77,7 +77,7 @@ button:focus-visible {
   @apply justify-between flex-row;
 }
 .content-wrapper.two-col .lg-col {
-  @apply basis-3/5;
+  @apply basis-3/5 grow-0 shrink-0 max-w-[60%];
 }
 .content-wrapper.two-col .sm-col {
   @apply basis-2/5;

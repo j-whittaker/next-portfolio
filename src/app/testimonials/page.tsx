@@ -1,7 +1,9 @@
-import TestimonialSlider from "../../components/TestimonialSlider";
+import dynamic from "next/dynamic";
 import { PAGE_LIST } from "../../constants/PageConstants";
 import DefaultLayout from "@/components/DefaultLayout";
 import React from 'react';
+
+const TestimonialSlider: React.ComponentType<{}>  = dynamic(() => import('../../components/TestimonialSlider'), {});
 
 export default function Testimonials() {
   
