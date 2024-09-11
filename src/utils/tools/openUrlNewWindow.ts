@@ -1,5 +1,5 @@
-const openUrlNewWindow : Function = (url : string ) => {
-    if(typeof window == 'undefined' || window == null) {
+const openUrlNewWindow : (url : string) => void = (url : string ) => {
+    if(typeof window == 'undefined' || window == null || !url) {
         return;
     } 
     if(typeof window.open == 'function') {

@@ -12,7 +12,7 @@ function Arrow({collapsed}: {collapsed: boolean}) {
 }
 
 const CollapsibleSection : React.FC<{title: string, content: React.ReactElement, additionalClasses: string, defaultCollapse?: boolean}> = ({title, content, additionalClasses='', defaultCollapse = true}) => {
-    const [collapsed, setCollapsed] = useProperty(defaultCollapse);
+    const [collapsed, setCollapsed] = useProperty<boolean>(defaultCollapse);
     setCollapsed(defaultCollapse);
     const parentWrapperClass = 'collapse-section-container'; 
     const wrapperRef = useRef(null); 
@@ -23,7 +23,7 @@ const CollapsibleSection : React.FC<{title: string, content: React.ReactElement,
             const wrapperElem = wrapperRef.current as HTMLDivElement;
             wrapperElem.classList.toggle('collapsed');
         }
-    }, []);
+    }, [collapsed, setCollapsed]);
 
     return <div ref={wrapperRef} className={`mb-4 ${parentWrapperClass} ${additionalClasses} ${collapsed ? 'collapsed' : ''}`}>
                 {/* Icon by icon king1 on freeicons.io https://freeicons.io/undefined/arrow-arrow%20down-down-drop-stroke%20arrow-icon-706 */}

@@ -1,6 +1,6 @@
 "use client" 
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Toolbar from "./Toolbar";
 import Title from "../components/Title";
 import '../styles/header.css'

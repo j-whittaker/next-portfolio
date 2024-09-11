@@ -5,9 +5,9 @@ import { useRef } from "react";
  * @param {*} initial 
  * @returns 
  */
-export default function useProperty(initial : any = null) {
-    const prop = useRef<typeof initial>(initial);
-    const setPropValue = (newVal : typeof prop.current) => {
+export default function useProperty<T>(initial : T) : [T, (newVal: T) => void] {
+    const prop = useRef<T>(initial);
+    const setPropValue = (newVal : T) => {
       prop.current = newVal;
     };
   

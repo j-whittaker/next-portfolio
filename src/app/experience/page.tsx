@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import DefaultLayout from "../../components/DefaultLayout";
 import '../../styles/pages/experience.css';
 import CollapsibleSection from "../../components/CollapsibleSection";
-import mediaQuery from "@/utils/mediaQuery";
+import mediaQuery from "@/utils/tools/mediaQuery";
 
 
 const RoleSection : React.FC = () => {
@@ -88,11 +88,12 @@ const TechnologiesSection : React.FC = () => {
             <ul className='work-xp'>
                 <li>JavaScript</li>
                 <li>ReactJS + Vite</li>
+                <li>TailwindCSS</li>
+                <li>Next.js</li>
                 <li>TypeScript</li>
                 <li>AlpineJS</li>
                 <li>KnockoutJS</li>
                 <li>LESS</li>
-                <li>TailwindCSS</li>
                 <li>HTML</li>
             </ul>
         </>

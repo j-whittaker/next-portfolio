@@ -1,4 +1,4 @@
-interface AccessTokenReponse {
+export interface AccessTokenReponse {
     access_token?: string;
     expires_in?: string;
     token_type?: string;
@@ -9,13 +9,8 @@ interface AccessTokenReponse {
  * @param response 
  * @returns 
  */
-export default function extractToken(response : any) : string {
-    if(!response.data) {
-        throw new Error('No data provided in token response')
-    }
-
-    const accessTokenBody : AccessTokenReponse = response.data as AccessTokenReponse;
-
+export default function extractToken(accessTokenBody : AccessTokenReponse) : string {
+    
     if(!accessTokenBody) {
         throw new Error('Token reponse in incorrect format');
     }

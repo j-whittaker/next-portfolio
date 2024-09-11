@@ -3,7 +3,7 @@ import { PAGE_LIST } from "../../constants/PageConstants";
 import DefaultLayout from "@/components/DefaultLayout";
 import React from 'react';
 
-const TestimonialSlider: React.ComponentType<{}>  = dynamic(() => import('../../components/TestimonialSlider'), {});
+const TestimonialSlider: React.ComponentType<object>  = dynamic(() => import('../../components/TestimonialSlider'), {});
 
 export default function Testimonials() {
   
