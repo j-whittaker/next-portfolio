@@ -10,11 +10,7 @@ export async function POST() {
         const accessToken : string = extractToken(tokenReponse);
         const playlistReponse = await getCurrentPlaylist(accessToken);
         const playlistData = extractPlaylistData(playlistReponse);
-        const headers = new Headers();
-        headers.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-        headers.set('Pragma', 'no-cache');
-        headers.set('Expires', '0');
-        return NextResponse.json( playlistData,{ headers });
+        return NextResponse.json( playlistData );
     } catch (error) {
         const errorMessage : Error = error as Error;
         console.log(errorMessage.message);
