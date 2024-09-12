@@ -10,7 +10,7 @@ import SpotifyContainer from "@/components/spotify/SpotifyContainer";
 import { PlaylistToDisplay } from "@/utils/api/extractPlaylistData"
 import axios from 'axios';
 
-const baseUrl : string = process.env.BASE_SITE_URL ?? 'http://localhost:3000';
+const baseUrl : string | undefined = process.env.NEXT_PUBLIC_BASE_SITE_URL;
 
 const playlistUrl = `${baseUrl}/api/playlist`;
 
@@ -19,9 +19,12 @@ const HomePage = () => {
   const [playlistData, setPlaylistData] = useState<PlaylistToDisplay | undefined>(undefined);
 
   useEffect(() => {
-    axios.post(playlistUrl,{}).then((response)=> {
-      setPlaylistData(response.data as PlaylistToDisplay)
-    });
+    if(baseUrl) {
+      axios.post(playlistUrl,{}).then((response)=> {
+        setPlaylistData(response.data as PlaylistToDisplay)
+      });
+    }
+    
   }, []);
 
   return (

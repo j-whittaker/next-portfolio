@@ -19,19 +19,22 @@ export const generateToken = async () : Promise<AccessTokenReponse> => {
   
     const credsBuffer : Buffer = Buffer.from(CLIENT_ID + ':' + CLIENT_SECRET);
 
-    const response = await axios.post<AccessTokenReponse>(`${BASE_SPOTIFY_URL}/api/token`, new URLSearchParams({
-        grant_type: 'client_credentials',
-    }), {
-        headers: {
-            'Authorization': `Basic ${credsBuffer.toString('base64')}`,
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-    });
-
-    //TODO handle responses
-
-    return response.data;
-
+    try {
+        const response = await axios.post<AccessTokenReponse>(`${BASE_SPOTIFY_URL}/api/token`, new URLSearchParams({
+            grant_type: 'client_credentials',
+        }), {
+            headers: {
+                'Authorization': `Basic ${credsBuffer.toString('base64')}`,
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        });
+        return response.data;
+    } catch (error) {
+        const errorMessage : Error = error as Error;
+        console.error(`generateToken url: ${BASE_SPOTIFY_URL}/api/token message: ${errorMessage.message}`);
+        throw new Error('Trouble getting Access Token');
+    }
+    
 }
 
 /**
@@ -40,15 +43,19 @@ export const generateToken = async () : Promise<AccessTokenReponse> => {
  * @param access_token string
  */
 export const getCurrentPlaylist = async ( access_token: string ) : Promise<unknown> => {
-    const response = await axios.get(`${BASE_SPOTIFY_API_URL}playlists/${CURRENT_PLAYLIST}`, {
-        headers: {
-            'Authorization': `Bearer ${access_token}`,
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-    });
-
-    //TODO handle reponse codes
-
-    return response.data;
+    
+    try {
+        const response = await axios.get(`${BASE_SPOTIFY_API_URL}playlists/${CURRENT_PLAYLIST}`, {
+            headers: {
+                'Authorization': `Bearer ${access_token}`,
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        });
+        return response.data;
+    } catch(error) {
+        const errorMessage : Error = error as Error;
+        console.error(`getCurrentPlaylist url: ${BASE_SPOTIFY_API_URL}playlists/${CURRENT_PLAYLIST} message: ${errorMessage.message}`);
+        throw new Error('Trouble loading playlist');
+    }
 }
 

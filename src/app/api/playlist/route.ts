@@ -13,9 +13,8 @@ export async function POST() {
         return NextResponse.json( playlistData );
     } catch (error) {
         const errorMessage : Error = error as Error;
-        console.log(errorMessage.message);
+        console.error(errorMessage.message);
         return NextResponse.json({}, {status: 400, statusText: errorMessage.message as string});
     }
-    
     
 }
