@@ -35,7 +35,6 @@ const RoleSection : React.FC = () => {
                 </ul>
             </>
         );
-        console.log('expand' + expandFirst);
     experience.push(<CollapsibleSection key="kadro" additionalClasses="exp-page" title="Senior Software Engineer at Kadro Solutions Inc." content={kadroContent} defaultCollapse={!expandFirst}/>);
     
     const bcbsncContent : React.ReactElement = 
