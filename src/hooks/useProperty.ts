@@ -9,6 +9,7 @@ export default function useProperty<T>(initial : T) : [T, (newVal: T) => void] {
     const prop = useRef<T>(initial);
     const setPropValue = (newVal : T) => {
       prop.current = newVal;
+      console.log('new val: ' + newVal);
     };
   
     return [prop.current, setPropValue];
