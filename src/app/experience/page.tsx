@@ -12,7 +12,6 @@ const RoleSection : React.FC = () => {
 
     useEffect(() => {
         mediaQuery('(max-width: 767px)', setExpandFirst);
-        console.log('effect')
     }, [])
 
     const experience : React.ReactElement[] = [];
