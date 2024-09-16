@@ -11,7 +11,7 @@ const RoleSection : React.FC = () => {
     const [expandFirst, setExpandFirst] = useState(false);
 
     useEffect(() => {
-        mediaQuery('(max-width: 767px)', setExpandFirst)
+        mediaQuery('(max-width: 767px)', setExpandFirst);
     }, [])
 
     const experience : React.ReactElement[] = [];

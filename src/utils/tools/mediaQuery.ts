@@ -4,7 +4,7 @@ export default function mediaQuery(mediaCheck : string, updateState : React.Disp
     if(typeof window == "undefined") {
         return;
     }
-    
+
     const mediaQuery : MediaQueryList = window.matchMedia(mediaCheck);
     
     updateState(mediaQuery.matches)
