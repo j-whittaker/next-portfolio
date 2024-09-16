@@ -11,7 +11,6 @@ function Arrow({collapsed}: {collapsed: boolean}) {
 }
 
 const CollapsibleSection : React.FC<{title: string, content: React.ReactElement, additionalClasses: string, defaultCollapse?: boolean}> = ({title, content, additionalClasses='', defaultCollapse = true}) => {
-    console.log('default collapsed' + defaultCollapse);
     const parentWrapperClass = 'collapse-section-container'; 
     const wrapperRef = useRef(null); 
 

@@ -32,7 +32,6 @@ const TestimonialSlider : React.FC = () => {
   const [activeSlideIdx, setActiveSlideIdx] = useState(0);
   const [intervalId, setIntervalId] = useProperty<NodeJS.Timeout | undefined>(undefined);
   const ttNextSlideInMs = 3000;
-  console.log(intervalId);
 
   const prevSlide = useCallback(() => {
     if(intervalId) clearInterval(intervalId);
@@ -54,11 +53,7 @@ const TestimonialSlider : React.FC = () => {
       nextSlide();
     }, ttNextSlideInMs);
 
-    console.log('initinterval');
-
     setIntervalId(intervalId);
-    console.log('initinterval' + intervalId);
-
 
     return () => clearInterval(intervalId);
 
