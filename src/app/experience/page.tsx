@@ -11,7 +11,8 @@ const RoleSection : React.FC = () => {
     const [expandFirst, setExpandFirst] = useState(false);
 
     useEffect(() => {
-        mediaQuery('(max-width: 767px)', setExpandFirst)
+        mediaQuery('(max-width: 767px)', setExpandFirst);
+        console.log('effect')
     }, [])
 
     const experience : React.ReactElement[] = [];
@@ -35,6 +36,7 @@ const RoleSection : React.FC = () => {
                 </ul>
             </>
         );
+        console.log('expand' + expandFirst);
     experience.push(<CollapsibleSection key="kadro" additionalClasses="exp-page" title="Senior Software Engineer at Kadro Solutions Inc." content={kadroContent} defaultCollapse={!expandFirst}/>);
     
     const bcbsncContent : React.ReactElement = 
