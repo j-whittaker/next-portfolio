@@ -25,8 +25,8 @@ const config: Config = {
       'offgrey': '#DFDDDD'
     },
     fontFamily: {
-      primary: '"Roboto", sans-serif',
-      secondary: '"Roboto Mono", serif', 
+      primary: ['var(--font-roboto)'],
+      secondary: ['var(--font-roboto-mono)'], 
     },
     screens: {
       'xl': '1400px',
