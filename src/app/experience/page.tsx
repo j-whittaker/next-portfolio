@@ -16,6 +16,22 @@ const RoleSection : React.FC = () => {
 
     const experience : React.ReactElement[] = [];
 
+    const serviceTradeContent : React.ReactElement =
+        (
+            <>
+                <ul className="work-xp">
+                    <li key="1">Architected and built a TypeScript ETL pipeline on AWS Lambda, SQS and Postgres to automatically sync data between a field-service SaaS platform and accounting systems such as Sage Intacct, QuickBooks and PartsManager</li>
+                    <li key="2">Developed and maintained 60+ customer-specific workflow integrations, using per-account transform overrides to customize data mapping without changing core pipeline logic</li>
+                    <li key="3">Implemented a concurrency locking system on DynamoDB to prevent race conditions between simultaneous syncs and protect customer data integrity</li>
+                    <li key="4">Built an S3-based record transport layer between ETL stages, decoupling them so each can scale and recover from failures independently</li>
+                    <li key="5">Implemented an error retry mechanism with full chain tracking, resolving retry chains on success and surfacing structured error reports through PostgreSQL</li>
+                    <li key="6">Maintained and extended Serverless Framework infrastructure across dev, staging and production AWS accounts, unifying the microservices the integrations rely on</li>
+                    <li key="7">Used Cursor and other AI tools to speed up development, plan feature dependencies and review code for performance and resiliency improvements</li>
+                </ul>
+            </>
+        );
+    experience.push(<CollapsibleSection key="servicetrade" additionalClasses="exp-page" title="Software Engineer at ServiceTrade" content={serviceTradeContent} defaultCollapse={!expandFirst}/>);
+
     const kadroContent : React.ReactElement = 
         (
             <>
@@ -35,7 +51,7 @@ const RoleSection : React.FC = () => {
                 </ul>
             </>
         );
-    experience.push(<CollapsibleSection key="kadro" additionalClasses="exp-page" title="Senior Software Engineer at Kadro Solutions Inc." content={kadroContent} defaultCollapse={!expandFirst}/>);
+    experience.push(<CollapsibleSection key="kadro" additionalClasses="exp-page" title="Senior Software Engineer at Kadro Solutions Inc." content={kadroContent} />);
     
     const bcbsncContent : React.ReactElement = 
         (
@@ -69,20 +85,6 @@ const RoleSection : React.FC = () => {
 const TechnologiesSection : React.FC = () => {
     const areas : React.ReactElement[] = [];
 
-    const backendContent : React.ReactElement = (
-        <>
-            <ul className='work-xp'>
-                <li>PHP</li>
-                <li>MySQL</li>
-                <li>C#</li>
-                <li>Python</li>
-                <li>Java</li>
-            </ul>
-        </>
-    );
-
-    areas.push(<CollapsibleSection key="backend" additionalClasses="exp-page" title="Backend" content={backendContent}/>);
-
     const frontendContent : React.ReactElement = (
         <>
             <ul className='work-xp'>
@@ -92,6 +94,7 @@ const TechnologiesSection : React.FC = () => {
                 <li>Next.js</li>
                 <li>TypeScript</li>
                 <li>AlpineJS</li>
+                <li>EmberJS</li>
                 <li>KnockoutJS</li>
                 <li>LESS</li>
                 <li>HTML</li>
@@ -101,9 +104,36 @@ const TechnologiesSection : React.FC = () => {
 
     areas.push(<CollapsibleSection key="frontend" additionalClasses="exp-page" title="Frontend" content={frontendContent}/>);
 
+    const backendContent : React.ReactElement = (
+        <>
+            <ul className='work-xp'>
+                <li>TypeScript</li>
+                <li>PHP</li>
+                <li>C#</li>
+                <li>Python</li>
+            </ul>
+        </>
+    );
+
+    areas.push(<CollapsibleSection key="backend" additionalClasses="exp-page" title="Backend" content={backendContent}/>);
+
+    const databaseContent : React.ReactElement = (
+        <>
+            <ul className='work-xp'>
+                <li>PostgreSQL</li>
+                <li>MySQL</li>
+                <li>DynamoDB</li>
+            </ul>
+        </>
+    );
+
+    areas.push(<CollapsibleSection key="databases" additionalClasses="exp-page" title="Databases" content={databaseContent}/>);
+
     const envContent : React.ReactElement = (
         <>
             <ul className='work-exp'>
+                <li>AWS (Lambda, SQS, S3)</li>
+                <li>Serverless Framework</li>
                 <li>Linux</li>
                 <li>Adobe Cloud</li>
                 <li>Docker</li>
@@ -113,6 +143,17 @@ const TechnologiesSection : React.FC = () => {
     );
 
     areas.push(<CollapsibleSection key="environments" additionalClasses="exp-page" title="Environments" content={envContent}/>);
+
+    const aiToolsContent : React.ReactElement = (
+        <>
+            <ul className='work-xp'>
+                <li>Cursor</li>
+                <li>Claude Code (CLI and VS Code)</li>
+            </ul>
+        </>
+    );
+
+    areas.push(<CollapsibleSection key="aitools" additionalClasses="exp-page" title="AI Tools" content={aiToolsContent}/>);
 
     return <div className="exp-section"><h2>Technologies</h2><div className="experience-wrapper">{areas}</div></div>;
 }
