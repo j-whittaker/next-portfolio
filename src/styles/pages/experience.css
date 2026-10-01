@@ -1,10 +1,27 @@
 .exp-page .title {
-    @apply text-[1.2rem] text-secondary font-primary;
+    @apply text-[1.1rem] text-secondary font-primary;
+    transition: color 0.2s ease;
   }
+.exp-page .title-container:hover .title {
+    @apply text-primary-dark;
+}
 .exp-page .collapse-content-wrapper {
     @apply text-secondary font-secondary;
 }
-.exp-section {
-    @apply mb-8;
+.exp-page .collapse-content-wrapper li {
+    @apply mb-2;
+    line-height: 1.6;
 }
-  
+.exp-page .collapse-content-wrapper li::marker {
+    @apply text-primary;
+}
+.exp-section {
+    @apply mb-10;
+}
+.tech-section .collapse-content-wrapper ul {
+    @apply flex flex-wrap gap-2 list-none;
+    padding-inline-start: 0;
+}
+.tech-section .collapse-content-wrapper li {
+    @apply mb-0 px-3 py-1 text-sm rounded-full border border-solid border-line bg-surface;
+}

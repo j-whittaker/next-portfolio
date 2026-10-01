@@ -155,7 +155,7 @@ const TechnologiesSection : React.FC = () => {
 
     areas.push(<CollapsibleSection key="aitools" additionalClasses="exp-page" title="AI Tools" content={aiToolsContent}/>);
 
-    return <div className="exp-section"><h2>Technologies</h2><div className="experience-wrapper">{areas}</div></div>;
+    return <div className="exp-section tech-section"><h2>Technologies</h2><div className="experience-wrapper">{areas}</div></div>;
 }
 
 const ExperiencePage : React.FC = () => {

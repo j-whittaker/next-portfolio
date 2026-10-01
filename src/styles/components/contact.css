@@ -1,6 +1,15 @@
+.contact-widget {
+    @apply bg-white border border-solid border-line rounded-xl p-6 shadow-sm;
+}
 .contact-widget .contact-item {
     @apply mb-4 font-primary;
 }
+.contact-widget .contact-item:last-child {
+    @apply mb-0;
+}
 .contact-widget a {
-    @apply text-black underline;
+    @apply text-primary-dark underline underline-offset-4 decoration-primary;
+}
+.contact-widget a:hover {
+    @apply text-dawn;
 }

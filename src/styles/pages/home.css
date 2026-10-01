@@ -7,6 +7,10 @@
     display: inline-block;
 }
 
+.home-section {
+    @apply mt-10 pt-8 border-t border-solid border-lightgrey;
+}
+
 @media screen and (max-width: 481px) {
     .home .content-wrapper.two-col {
       flex-direction: column-reverse;

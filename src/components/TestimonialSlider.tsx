@@ -7,16 +7,16 @@ import '../styles/components/testimonialSlider.css';
 import SideArrowIcon from '../../public/assets/side-arrow.svg';
 
 function SideArrow() {
-  return <Image className="w-9/12 hover:opacity-75" alt="slider nav arrow" src={SideArrowIcon} />
+  return <Image className="h-4 w-auto" alt="slider nav arrow" src={SideArrowIcon} />
 }
 
 function SlideBtn({setActiveSlide, active }: { setActiveSlide: MouseEventHandler<HTMLSpanElement>; active: string; }) {
-  return <span onClick={setActiveSlide} className={`slide-btn border inline-block w-12 h-2 content-[''] mx-2 my-0 rounded-[unset] border-solid border-primary ${active}`}></span>;
+  return <span onClick={setActiveSlide} className={`slide-btn inline-block cursor-pointer w-6 h-1.5 mx-1 my-0 rounded-full ${active}`}></span>;
 }
 
 function TestimonialSlide({quote, author, active }: { quote: string;  author: string;  active: boolean;}) {
   return (<>
-    <div className={`testimonial-slide border rounded min-h-[18rem] flex-col justify-between p-12 border-solid border-lightgrey ${active ? 'flex' : 'hidden'}`}>
+    <div className={`testimonial-slide min-h-[18rem] flex-col justify-between p-12 ${active ? 'flex' : 'hidden'}`}>
       <div className='quote !mt-0 !mb-4'>{`"${quote}"`}</div>
       <div className='author font-[700] !m-[unset]'>{`-${author}`}</div> 
     </div>
@@ -68,10 +68,10 @@ const TestimonialSlider : React.FC = () => {
   slideBtns.push(<SlideBtn setActiveSlide={() => {setActiveSlideClick(1)}} active={(1 == activeSlideIdx) ? 'active' : ''} key={1} />)
   slides.push(buildSlide("I had the pleasure of working with Jake on several projects. He is an outstanding software engineer who always delivers high-quality code no matter how complicated the task. Not only does he approach every challenge with a solutions-oriented mindset, but he's also a joy to collaborate with, always bringing a positive and engaging spirit to the team.", 'Will James, Senior Frontend Engineer', activeSlideIdx == 2));
   slideBtns.push(<SlideBtn setActiveSlide={() => {setActiveSlideClick(2)}} active={(2 == activeSlideIdx) ? 'active' : ''} key={2} />)
-  return <div className='testimonial-slider flex items-center gap-8'>
-          <button onClick={prevSlide} className='testimonial-arrow bg-transparent mb-8 p-0 prev'><SideArrow/></button>
+  return <div className='testimonial-slider flex items-center gap-8 max-sm:gap-2'>
+          <button onClick={prevSlide} className='testimonial-arrow bg-transparent mb-8 p-0 shrink-0 w-10 h-10 flex items-center justify-center rounded-full prev'><SideArrow/></button>
           <div className='slides'>{slides}<div className='slide-btns text-center mt-4'>{slideBtns}</div></div>
-          <button onClick={nextSlide} className='testimonial-arrow bg-transparent mb-8 p-0 next'><SideArrow/></button>
+          <button onClick={nextSlide} className='testimonial-arrow bg-transparent mb-8 p-0 shrink-0 w-10 h-10 flex items-center justify-center rounded-full next'><SideArrow/></button>
         </div>;
 }
 

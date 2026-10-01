@@ -1,14 +1,49 @@
-.collapse-section-container.collapsed > div,
-.collapse-section-container.collapsed > div > * {
-  @apply invisible h-0 m-0 p-0;
+.collapse-section-container {
+  @apply bg-white border border-solid border-line rounded-xl px-5 py-4 shadow-sm;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.collapse-section-container.collapsed .collapse-section-toggle {
-  @apply rotate-180 transition-transform duration-[0.25s] ease-[ease];
+.collapse-section-container:hover {
+  @apply border-primary shadow-md;
+}
+
+.collapse-content-wrapper {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.collapse-content-wrapper > * {
+  @apply overflow-hidden min-h-0 m-0 pt-3 pb-1;
+  transition: padding 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+}
+
+.collapse-section-container.collapsed > .collapse-content-wrapper {
+  grid-template-rows: 0fr;
+}
+
+.collapse-section-container.collapsed > .collapse-content-wrapper > * {
+  @apply invisible opacity-0 py-0;
 }
 
 .collapse-section-toggle {
-  @apply h-4 w-4;
+  @apply h-5 w-5 shrink-0 opacity-60;
+  transform: rotate(180deg);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.collapse-section-toggle.collapsed {
   transform: rotate(0deg);
-  transition: transform 0.25s ease;
+}
+
+.title-container:hover .collapse-section-toggle {
+  @apply opacity-100;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collapse-content-wrapper,
+  .collapse-content-wrapper > *,
+  .collapse-section-toggle {
+    transition: none;
+  }
 }

@@ -10,14 +10,18 @@ const DefaultLayout: React.FC<{ children: React.ReactNode, className?: string }>
 
     return (
         <>
-            <div className={`${className} page-header max-w-full flex justify-between gap-4 flex-row bg-dawn h-12 sticky z-[99] -mt-0.5 p-2 border-y-secondary border-b border-solid border-t top-0`}>
-                <Title/> 
-                <Toolbar />
+            <div className={`${className} page-header max-w-full bg-dawn h-14 sticky z-[99] px-16 max-md:px-4 shadow-md top-0`}>
+                <div className="mx-auto w-full max-w-[70rem] h-full flex justify-between items-center gap-4 flex-row">
+                    <Title/>
+                    <Toolbar />
+                </div>
             </div>
             <div className="main-content h-full overflow-auto px-16 py-8 max-md:p-4">
-                <Title/> 
-                {children}
-            </div>    
+                <div className="mx-auto w-full max-w-[70rem]">
+                    <Title/>
+                    {children}
+                </div>
+            </div>
         </>
     );
 };
