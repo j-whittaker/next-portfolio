@@ -1,12 +1,36 @@
 
 .testimonial-slide {
-    background: 0% 0% no-repeat padding-box;
     align-items: end;
-    @apply bg-offgrey;
+    @apply bg-white border border-solid border-line border-l-4 border-l-primary rounded-2xl shadow-sm;
 }
-  
+
+.testimonial-slide .quote {
+    line-height: 1.8;
+}
+
+.testimonial-slide .author {
+    @apply text-primary-dark;
+}
+
+.slide-btn {
+    @apply bg-line;
+    transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.slide-btn:hover {
+    @apply bg-lightgrey;
+}
+
 .slide-btn.active {
-    @apply bg-primary;
+    @apply bg-primary w-12;
+}
+
+.testimonial-arrow {
+    transition: background-color 0.2s ease;
+}
+
+.testimonial-arrow:hover {
+    @apply bg-line;
 }
 
 .testimonial-arrow.prev img {
@@ -14,11 +38,14 @@
   }
 
 
-.testimonial-arrow:focus,
-.testimonial-arrow:focus-visible {
+.testimonial-arrow:focus {
     outline: none;
 }
 
+.testimonial-arrow:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-primary;
+}
+
 div.testimonial-slide {
-    @apply max-md:min-h-[25rem] max-sm:min-h-[30rem] max-sm:p-4;
+    @apply max-md:min-h-[25rem] max-sm:min-h-[30rem] max-sm:p-6;
 }

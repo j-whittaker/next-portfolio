@@ -14,7 +14,7 @@ interface NavLinkProperties {
 }
 
 const NavLink : React.FC<NavLinkProperties> = ({section, isActive}) => {
-    return <Link className={`nav-btn text-offwhite font-medium leading-normal cursor-pointer tracking-[0] uppercase bg-transparent bg-no-repeat px-2 py-1 rounded-[unset] hover:border-2 hover:border-solid hover:border-offwhite ${isActive ? 'active' : ''}` } href={`${PAGE_TO_PATH_MAP[section]}`} >{section}</Link>;
+    return <Link className={`nav-btn text-offwhite text-sm font-medium leading-normal cursor-pointer tracking-[0.08em] uppercase bg-transparent px-3 py-1.5 rounded-md hover:bg-white/10 hover:text-white ${isActive ? 'active' : ''}` } href={`${PAGE_TO_PATH_MAP[section]}`} >{section}</Link>;
 }
 
 const Toolbar : React.FC = () => {
@@ -31,7 +31,7 @@ const Toolbar : React.FC = () => {
     });
        
     return ( 
-        <div className="toolbar flex justify-between basis-2/5 gap-0.5">
+        <div className="toolbar flex items-center justify-end gap-2">
           {navLinks}
         </div>
     );

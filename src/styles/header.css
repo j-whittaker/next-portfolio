@@ -1,9 +1,9 @@
-.page-header h1 { 
-  @apply text-medgrey text-2xl tracking-[0] font-primary;
+.page-header h1 {
+  @apply text-lightgrey text-xl tracking-[0] font-primary whitespace-nowrap;
 }
 
 div.toolbar {
-    @apply max-md:basis-full;
+    @apply max-md:basis-full max-md:justify-between;
 }
 .main-content h1 {
     @apply  max-md:text-secondary max-md:text-[1.2rem]  max-md:tracking-[0]  max-md:flex  max-md:justify-between  max-md:mt-4  max-md:mb-8  max-md:font-primary;
@@ -13,7 +13,22 @@ div.toolbar {
     @apply  max-md:hidden;
 }
 
-.nav-btn:focus,
-.nav-btn:focus-visible {
+.nav-btn {
+  @apply relative;
+}
+
+.nav-btn.active {
+  @apply text-primary;
+}
+
+.nav-btn.active::after {
+  @apply content-[''] absolute left-3 right-3 -bottom-1 h-0.5 rounded-full bg-primary;
+}
+
+.nav-btn:focus {
   outline: none;
+}
+
+.nav-btn:focus-visible {
+  @apply outline outline-2 outline-offset-2 outline-primary;
 }

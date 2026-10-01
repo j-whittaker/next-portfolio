@@ -8,14 +8,12 @@ interface PageList {
 
 export const PAGE_LIST : PageList = {
     HOME_PAGE: "about me",
-    EXPERIENCE_PAGE: 'experience',
-    TESTIMONIALS_PAGE: 'testimonials'
+    EXPERIENCE_PAGE: 'experience'
 }
 
 export const PATH_TO_PAGE_MAP : PageList = {
     "/home": PAGE_LIST.HOME_PAGE,
-    "/experience": PAGE_LIST.EXPERIENCE_PAGE,
-    "/testimonials": PAGE_LIST.TESTIMONIALS_PAGE
+    "/experience": PAGE_LIST.EXPERIENCE_PAGE
 }
 
 export const PAGE_TO_PATH_MAP : PageList = reverseMap(PATH_TO_PAGE_MAP);
